@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  transition: 0.1s; }
+
+body {
+  font-family: 'Roboto Condensed', Helvetica, sans-serif;
+  text-align: center;
+  font-size: 18px;
+  color: #303030; }
+
+.container {
+  max-width: 450px;
+  margin: 0 auto; }
+
+h1 {
+  font-family: 'Roboto Condensed', Helvetica, sans-serif;
+  text-align: center;
+  font-size: 22px;
+  color: #303030;
+  padding: 0.5em;
+}
+
+
+h3 {
+  color: #002244;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em; }
+
+h4 {
+  text-transform: uppercase; }
+
+.disabled h3 {
+  color: #535353;
+  cursor: not-allowed; }
+
+.button-active {
+  color: #002244;
+  background-color: #535353; }
+
+nav {
+  background-color: #A9A9A9;
+  color: #EFEFEF; }
+  nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    nav .container img {
+      width: 4.5em;
+      padding: .5em 0.2em; }
+    nav .container .login-button,
+    nav .container .menu-button {
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 1em 1.25em;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      cursor: pointer; }
+
+.nav-menu {
+  background-color: #535353;
+  color: #EFEFEF;
+  display: flex;
+  justify-content: center; }
+  .nav-menu .container {
+    padding: 1.5em;
+    display: flex; }
+    .nav-menu .container ul {
+      list-style: none; }
+      .nav-menu .container ul li {
+        padding: 0.25em 2em; }
+        .nav-menu .container ul li:first-child {
+          text-transform: uppercase;
+          color: #002244;
+          letter-spacing: 0.05em; }
+
+input {
+  text-rendering: auto;
+  color: initial;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  background-color: white;
+  cursor: text;
+  margin: 0em;
+  font: 400 13.3333px Arial;
+  padding: 1px 0px;
+  border-width: 2px;
+  border-style: inset;
+  border-color: initial;
+  border-image: initial;
+}
+
+.hide {
+  display: none; }
+
+footer {
+  color: #EFEFEF;
+  background-color: #A9A9A9;
+  margin-top: 2em;
+  padding: 2em 0.5em; }
+  footer .container {
+    display: flex;
+    justify-content: center; }
+    footer .container object {
+      width: 4.5em; }
+
+#planFor {
+  padding: 2em 0.5em;
+}

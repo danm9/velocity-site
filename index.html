@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Velocity</title>
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet'>
+  <link rel='stylesheet' type='text/css' href='styles.css'>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class='container'>
+      <img src="Logo.png"  width=60 height=70>
+      <div>
+        <p class='menu-button'><strong>Menu</strong></p>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Nav Menu -->
+  <div class='nav-menu hide' id="nav-dropdown">
+    <div class='container'>
+      <ul>
+        <li>Dan's Stuff</li>
+        <li>Velocity</li>
+        <li>Patriots</li>
+        <li>Red Sox</li>
+        <li>Celtics</li>
+        <li>Bruins</li>
+        <li>Revolution</li>
+      </ul>
+      <ul>
+        <li>My Links</li>
+        <li>ADD</li>
+        <li>ADD</li>
+        <li>ADD</li>
+        <li>ADD</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Velocity -->
+  <div class='velocity'>
+    <div class='velocity-form'>
+      <h1>Velocity</h1>
+        
+        Velocity: <input type="number" name="velocity" id="velocity"><br>
+        Total Team Members: <input type="number" name="totalTeamMembers" id="totalTeamMembers"><br>
+        Total Days Out: <input type="number" name="totalDaysOut" id="totalDaysOut"><br>
+        Total Days In Sprint: <input type="number" name="totalDaysInSprint" id="totalDaysInSprint"><br>
+        Average Injections: <input type="number" name="averageInjections" id="averageInjections"><br>
+        Deploys: <input type="number" name="deploys" id="deploys"><br> 
+        <button onclick="calculateVelocity(
+            document.getElementById('velocity').value,
+            document.getElementById('totalTeamMembers').value,
+            document.getElementById('totalDaysOut').value,
+            document.getElementById('totalDaysInSprint').value,
+            document.getElementById('averageInjections').value,
+            document.getElementById('deploys').value)">Submit</button>
+      
+      <p id="planFor"></p>
+    </div>
+  </div>
+
+  <footer>
+    <div class='container'>
+      <P>Good Luck</P>
+    </div>
+  </footer>
+
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script> 
+  <script type="text/javascript" src="main.js"></script>
+
+</body>
+
+</html>
