@@ -6,76 +6,523 @@
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet'>
   <link rel='stylesheet' type='text/css' href='styles.css'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpCs2Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <div class='container'>
-      <img src="Logo.png"  width=60 height=70>
-      <div>
-        <p class='menu-button'><strong>Menu</strong></p>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Nav Menu -->
-  <div class='nav-menu hide' id="nav-dropdown">
-    <div class='container'>
-      <ul>
-        <li>Dan's Stuff</li>
-        <li>Velocity</li>
-        <li>Patriots</li>
-        <li>Red Sox</li>
-        <li>Celtics</li>
-        <li>Bruins</li>
-        <li>Revolution</li>
-      </ul>
-      <ul>
-        <li>My Links</li>
-        <li>ADD</li>
-        <li>ADD</li>
-        <li>ADD</li>
-        <li>ADD</li>
-      </ul>
-    </div>
+  <div class="jumbotron">
+    <h1 class="display">Free Agile Tools</h1>
+    <p class="lead">This webpage is going to be used for free agile tools that anyone with the Internet can use.</p>
+    <hr class="my-4">
+    <p>The source code below as well as the same calculations in Python or Java are available on GitHub..</p>
+    <a class="btn btn-primary btn-sm" href="https://github.com/danm9/minahan.dev" role="button">GitHub</a>
   </div>
 
-  <!-- Velocity -->
-  <div class='velocity'>
-    <div class='velocity-form'>
-      <h1>Velocity</h1>
-        
-        Velocity: <input type="number" name="velocity" id="velocity"><br>
-        Total Team Members: <input type="number" name="totalTeamMembers" id="totalTeamMembers"><br>
-        Total Days Out: <input type="number" name="totalDaysOut" id="totalDaysOut"><br>
-        Total Days In Sprint: <input type="number" name="totalDaysInSprint" id="totalDaysInSprint"><br>
-        Average Injections: <input type="number" name="averageInjections" id="averageInjections"><br>
-        Deploys: <input type="number" name="deploys" id="deploys"><br> 
-        <button onclick="calculateVelocity(
-            document.getElementById('velocity').value,
-            document.getElementById('totalTeamMembers').value,
-            document.getElementById('totalDaysOut').value,
-            document.getElementById('totalDaysInSprint').value,
-            document.getElementById('averageInjections').value,
-            document.getElementById('deploys').value)">Submit</button>
+  <div class="d-flex justify-content-around">
+    <div class='velocity-calculator m-4'>
+      <h2>Velocity Calculator</h2>      
+      <!--velocity  -->
+      <div class="input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Velocity</span>
+        </div>
+        <input 
+          type="number" 
+          class="form-control" 
+          aria-label="Sizing example input" 
+          aria-describedby="inputGroup-sizing-sm" 
+          id="velocity">
+      </div>
       
-      <p id="planFor"></p>
+      <!--Total Team Members  -->
+      <div class="input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Total Team Members</span>
+        </div>
+        <input 
+          type="number" 
+          class="form-control" 
+          aria-label="Sizing example input" 
+          aria-describedby="inputGroup-sizing-sm" 
+          id="totalTeamMembers">
+      </div>
+      
+      <!-- Sprint Length -->
+      <div class="input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Sprint Length</label>
+        </div>
+        <select class="custom-select" id="sprintLength">
+          <option selected>Choose...</option>
+          <option value="5">1 Week</option>
+          <option value="10">2 Weeks</option>
+          <option value="15">3 Weeks</option>
+          <option value="20">4 Weeks</option>
+        </select>
+      </div>
+      
+      <!--Total Days Out  -->
+      <div class="input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Total Days Out</span>
+        </div>
+        <input 
+          type="number" 
+          class="form-control" 
+          aria-label="Sizing example input" 
+          aria-describedby="inputGroup-sizing-sm" 
+          id="totalDaysOut">
+      </div>
+      
+      <!--Average Injections  -->
+      <div class="input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Average Injections</span>
+        </div>
+        <input 
+          type="number" 
+          class="form-control" 
+          aria-label="Sizing example input" 
+          aria-describedby="inputGroup-sizing-sm" 
+          id="averageInjections">
+      </div>
+      
+      <!--Average Injection Effort  -->
+      <div class="input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Average Injection Effort</span>
+        </div>
+        <input 
+          type="number" 
+          class="form-control" 
+          aria-label="Sizing example input" 
+          aria-describedby="inputGroup-sizing-sm" 
+          id="averageInjectionEffort">
+      </div>
+      
+      <!--Additional Hours Subtracted -->
+      <div class="input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Additional Hours Subtracted</span>
+        </div>
+        <input 
+          type="number" 
+          class="form-control" 
+          aria-label="Sizing example input" 
+          aria-describedby="inputGroup-sizing-sm" 
+          id="additionalHours">
+      </div>
+      
+      <!--Rollover Points  -->
+      <div class="input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Rollover Points</span>
+        </div>
+        <input 
+          type="number" 
+          class="form-control" 
+          aria-label="Sizing example input" 
+          aria-describedby="inputGroup-sizing-sm" 
+          id="rolloverPoints">
+      </div>
+      
+      <button type="button" class="btn btn-success btn-sm" onclick="calculateVelocity(
+        document.getElementById('velocity').value,
+        document.getElementById('totalTeamMembers').value,
+        document.getElementById('sprintLength').value,
+        document.getElementById('totalDaysOut').value,
+        document.getElementById('averageInjections').value,
+        document.getElementById('averageInjectionEffort').value,
+        document.getElementById('additionalHours').value,
+        document.getElementById('rolloverPoints').value)">Calculate</button>
+      
+      <p id="planFor" class="output"></p>
+      
+      <p >Definitions</p>
+      
+      <div class="accordion m-2" id="accordionExample">
+        <div class="card">
+          
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Velocity
+              </button>
+            </h2>
+          </div>
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              Velocity is the total amount of effort points completed after an iteration. The Velocity Calculator should use at least an average Velocity (6 iterations is a good start).
+              For more information on Velocity, visit <a href="https://www.agilealliance.org/glossary/velocity/#q=~(infinite~false~filters~(postType~(~'page~'post~'aa_book~'aa_event_session~'aa_experience_report~'aa_glossary~'aa_research_paper~'aa_video)~tags~(~'velocity))~searchTerm~'~sort~false~sortDirection~'asc~page~1)">Agile Alliance</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Total Team Count
+              </button>
+            </h2>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div class="card-body">
+              Total Team Members represent the development team or team doing the work. For example, in software development, it could include the developers, QA personnel, business analysts, and testing engineers. If those individuals affect the effort of a task/User Story/Product Backlog Item, you should count them.
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Sprint Length
+              </button>
+            </h2>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            <div class="card-body">
+              Sprint Length represents the length of your iteration. To make things simple, we used weeks. If your iteration is over 4 weeks, you should ask yourself if you working toward becoming agile. 
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingFour">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                Total Days Out
+              </button>
+            </h2>
+          </div>
+          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+            <div class="card-body">
+              Total Days Out represents the time your team is out of the office or not working on the project. This is important and usually not represented in "estimates" for sprint work. One day out for one person in a 2-Week Sprint is 10% of his or her time gone. 
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingFive">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                Average Injections
+              </button>
+            </h2>
+          </div>
+          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+            <div class="card-body">
+              The Average Injection count is used to create a buffer for your team of the known unknowns (e.g., bugs from new work) 
+              and unknown unknowns (e.g., environment issues or IT issues) that come up where the team will be pulled off sprint work. 
+              This allows the team to set the limit of items "injected" that can't be ignored before pulling items out of a sprint. In 
+              a perfect world, you would set the work items on the first day of the sprint during planning, but in reality, that's not 
+              always done...businesses can't rely on perfect world. 
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingSix">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                Average Injection Effort
+              </button>
+            </h2>
+          </div>
+          <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+            <div class="card-body">
+              The Average Injection Effort is a great way to add an effort to the unknowns. If you track injections, have the team put 
+              an effort on that injection and you can start to help "estimate" the unknown. If you average 8 injections and you put an 
+              effort of 2 on those before the sprint, you are allowing 16 points of injections before you have to start pulling items 
+              out of a sprint. If you don't believe in injections and your business doesn't get involved, then leave those two items 
+              blank...an congrats on being extremely agile!
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingSeven">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                Additional Hours Subtracted
+              </button>
+            </h2>
+          </div>
+          <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+            <div class="card-body">
+              The Additional Hours Subtracted can be used for items you know are coming up in the sprint. For example, a two-hour 
+              company meeting on a Wednesday and a mandatory one-hour training video on Friday. For a team of 5, that would be 15 
+              Additional Hours. REMEMBER: Sustainability in agile is important. Teams shouldn't be punished for external factors. They 
+              shouldn't have to make up that work and the Velocity shouldn't be affected by these factors as well. 
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingEight">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                Rollover Points
+              </button>
+            </h2>
+          </div>
+          <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+            <div class="card-body">
+              Rollover Points are items that were committed in the previous sprint that either weren't started or completed, so you roll 
+              them over to the next sprint.
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     </div>
+
+    <div class='new-team-velocity m-4'>
+      <h2>Team Velocity Calculator</h2>
+      <!--Current Velocity  -->
+      <div class="input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Current Velocity</span>
+        </div>
+        <input 
+          type="number" 
+          class="form-control" 
+          aria-label="Sizing example input" 
+          aria-describedby="inputGroup-sizing-sm" 
+          id="currentVelocity">
+      </div>
+
+      <!--Old Team Count  -->
+      <div class="input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Old Team Count</span>
+        </div>
+        <input 
+          type="number" 
+          class="form-control" 
+          aria-label="Sizing example input" 
+          aria-describedby="inputGroup-sizing-sm" 
+          id="oldTeamCount">
+      </div>
+    
+      <!--New Team Members  -->
+      <div class="input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text">New Team Count</span>
+        </div>
+        <input 
+          type="number" 
+          class="form-control" 
+          aria-label="Sizing example input" 
+          aria-describedby="inputGroup-sizing-sm" 
+          id="newTeamCount">
+      </div>
+      
+      <button type="button" class="btn btn-success btn-sm" onclick="teamVelocityCalc(
+        document.getElementById('currentVelocity').value,
+        document.getElementById('oldTeamCount').value,
+        document.getElementById('newTeamCount').value)">Calculate</button>
+      <p id="newVelocity" class="output"></p>
+      
+      <p>Definitions</p>
+      
+      <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header" id="headingNine">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
+                Current Velocity
+              </button>
+            </h2>
+          </div>
+          <div id="collapseNine" class="collapse show" aria-labelledby="headingNine" data-parent="#accordionExample">
+            <div class="card-body">
+              Current Velocity is the Velocity your team is using to plan sprints.
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header" id="headingTen">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                Old Team Count
+              </button>
+            </h2>
+          </div>
+          <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordionExample">
+            <div class="card-body">
+              The Old Team Count is what you your team count was for the above Current Velocity.
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header" id="headingEleven">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                New Team Count
+              </button>
+            </h2>
+          </div>
+          <div id="collapseEleven"" class="collapse" aria-labelledby="headingEleven" data-parent="#accordionExample">
+            <div class="card-body">
+              The New Team Count is what you are planning for in the next sprint. It will calculate what the velocity was for the Old Team and convert it to the New Team.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='sprint-size-calculator m-4'>
+      <h2>Sprint Calculator</h2>
+     
+      <!--Current Sprint Velocity  -->
+      <div class="input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Current Velocity</span>
+        </div>
+        <input 
+          type="number" 
+          class="form-control" 
+          aria-label="Sizing example input" 
+          aria-describedby="inputGroup-sizing-sm" 
+          id="currentSprintVelocity">
+      </div>
+      
+      <!--Team Count  -->
+      <div class="input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Total Team Members</span>
+        </div>
+        <input 
+          type="number" 
+          class="form-control" 
+          aria-label="Sizing example input" 
+          aria-describedby="inputGroup-sizing-sm" 
+          id="teamCount">
+      </div>
+      
+      <!-- Old Sprint Length -->
+      <div class="input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Old Sprint Length</label>
+        </div>
+        <select class="custom-select" id="oldSprintLength">
+          <option selected>Choose...</option>
+          <option value="5">1 Week</option>
+          <option value="10">2 Weeks</option>
+          <option value="15">3 Weeks</option>
+          <option value="20">4 Weeks</option>
+        </select>
+      </div>
+      
+      <!-- New Sprint Length -->
+      <div class="input-group input-group-sm mb-2">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">New Sprint Length</label>
+        </div>
+        <select class="custom-select" id="newSprintLength">
+          <option selected>Choose...</option>
+          <option value="5">1 Week</option>
+          <option value="10">2 Weeks</option>
+          <option value="15">3 Weeks</option>
+          <option value="20">4 Weeks</option>
+        </select>
+      </div>
+      
+      <button type="button" class="btn btn-success btn-sm" onclick="sprintVelocityCalc(
+        document.getElementById('currentSprintVelocity').value,
+        document.getElementById('teamCount').value,
+        document.getElementById('oldSprintLength').value,
+        document.getElementById('newSprintLength').value)">Calculate</button>
+      
+      <p id="newSprintVelocity"  class="output"></p>
+      
+      <!-- definitions -->
+      <p >Definitions</p>
+      <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header" id="headingTwelve">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="true" aria-controls="collapseTwelve">
+                Current Velocity
+              </button>
+            </h2>
+          </div>
+          <div id="collapseTwelve" class="collapse show" aria-labelledby="headingTwelve" data-parent="#accordionExample">
+            <div class="card-body">
+              Current Velocity is the Velocity your team is using to plan sprints.
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header" id="headingThirteen">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+                Total Team Members
+              </button>
+            </h2>
+          </div>
+          <div id="collapseThirteen" class="collapse" aria-labelledby="headingThirteen" data-parent="#accordionExample">
+            <div class="card-body">
+              Total Team Members represent the development team or team doing the work. For example, in software development, it could
+              include the developers, QA personnel, business analysts, and testing engineers. If those individuals affect the effort of 
+              a task/User Story/Product Backlog Item, you should count them.
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header" id="headingFourteen">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
+                Old Sprint Length
+              </button>
+            </h2>
+          </div>
+          <div id="collapseFourteen" class="collapse" aria-labelledby="headingFourteen" data-parent="#accordionExample">
+            <div class="card-body">
+              The Old Sprint Length is the length of the sprint you used for the Current Velocity.           
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingFifteen">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFifteen" aria-expanded="false" aria-controls="collapseFifteen">
+                New Sprint Length
+              </button>
+            </h2>
+          </div>
+          <div id="collapseFifteen" class="collapse" aria-labelledby="headingFifteen" data-parent="#accordionExample">
+            <div class="card-body">
+              The New Sprint Length is the length of sprint you want your new Velocity for. 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <footer>
     <div class='container'>
-      <P>May The Force Be With You</P>
+      <P>Check out the <a href="https://www.buagileinnovationlab.com/" class="buail-black">BU Agile Innovation Lab</a> for Free Reasearch and Webinars on Agile Project Management.</P>
     </div>
   </footer>
 
-  <script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script> 
-  <script type="text/javascript" src="main.js"></script>
+
+  <script type="text/javascript" src="Velocity.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 </body>
 
