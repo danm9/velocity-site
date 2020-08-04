@@ -3,6 +3,7 @@
 function calculateVelocity(velocity, totalTeamMembers, sprintLength, totalDaysOut, averageInjections, averageInjectionEffort, additionalHours, rolloverPoints) {
     let hoursPerDay = 6;
     additionalHours = additionalHours * 1;
+    rolloverPoints = rolloverPoints * 1;
     
     let sprintHours = sprintLength * hoursPerDay * totalTeamMembers;
     console.log("Total Sprint Hours: " + sprintHours);
